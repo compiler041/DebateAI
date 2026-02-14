@@ -211,7 +211,7 @@ const OnlineDebateRoom = (): JSX.Element => {
   );
   const roleLocked =
   localReady ||
-  peerReady ||
+  (peerReady && localRole !== null) ||
   debatePhase !== DebatePhase.Setup ||
   localRole !== null;
 

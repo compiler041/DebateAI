@@ -1,8 +1,8 @@
 package main
 
 import (
+	"fmt"
 	"time"
-
 	"arguehub/services"
 )
 
@@ -36,6 +36,7 @@ func main() {
 	pool = ms.GetPool()
 
 	for _, user := range pool {
+		fmt.Println(user)
 	}
 
 	// Wait a bit for matching
@@ -45,6 +46,7 @@ func main() {
 	pool = ms.GetPool()
 
 	for _, user := range pool {
+		fmt.Println(user)
 	}
-
+     
 }

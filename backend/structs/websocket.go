@@ -1,10 +1,7 @@
 package structs
 
 import (
-	"sync"
 	"time"
-
-	"github.com/gorilla/websocket"
 )
 
 type Message struct {
@@ -25,19 +22,6 @@ type Section struct {
 
 type DebateFormat struct {
 	Sections []Section `json:"sections"`
-}
-
-type Room struct {
-	Users          map[string]*websocket.Conn
-	Mutex          sync.Mutex
-	DebateFmt      DebateFormat
-	DebateStarted  bool
-	CurrentTurn    string
-	TurnActive     map[string]bool
-	ForUserID      string
-	AgainstUserID  string
-	FirstSpeakerID string
-	ReadyUsers     map[string]bool
 }
 
 type ChatMessage struct {

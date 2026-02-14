@@ -799,6 +799,12 @@ func handleReadyStatus(room *Room, conn *websocket.Conn, message Message, roomID
 		return
 	}
 
+    // Once ready, cannot un-ready
+	if room.ReadyUsers[client.UserID] {
+		room.Mutex.Unlock()
+		return
+   }
+
 	if room.ReadyUsers == nil {
 		room.ReadyUsers = make(map[string]bool)
 	}
